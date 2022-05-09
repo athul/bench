@@ -284,7 +284,7 @@ def install_bench(args):
 def clone_bench_repo(args):
 	'''Clones the bench repository in the user folder'''
 	branch = args.bench_branch or 'develop'
-	repo_url = args.repo_url or 'https://github.com/frappe/bench'
+	repo_url = args.repo_url or 'https://github.com/athul/bench'
 
 	if os.path.exists(tmp_bench_repo):
 		log('Not cloning already existing Bench repository at {tmp_bench_repo}'.format(tmp_bench_repo=tmp_bench_repo))
