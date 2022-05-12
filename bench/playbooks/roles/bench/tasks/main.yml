@@ -15,8 +15,9 @@
 
   - name: install bench
     pip:
-      name: '{{ bench_repo_path }}'
-      extra_args: '-e'
+      name: frappe-bench
+      # '{{ bench_repo_path }}'
+      # extra_args: '-e'
     become: yes
     become_user: root
 
