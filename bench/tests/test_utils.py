@@ -35,6 +35,7 @@ class TestUtils(unittest.TestCase):
 			is_valid_frappe_branch("https://github.com/random/random.git", frappe_branch="random-branch")
 
 		is_valid_frappe_branch("https://github.com/frappe/frappe.git", frappe_branch="develop")
+		is_valid_frappe_branch("https://github.com/frappe/frappe.git", frappe_branch="v13.29.0")
 
 	def test_app_states(self):
 		bench_dir = "./sandbox"
@@ -66,7 +67,7 @@ class TestUtils(unittest.TestCase):
 		subprocess.run(["git", "add", "."], cwd=frappe_path, capture_output=True, check=True)
 		subprocess.run(["git", "commit", "-m", "temp"], cwd=frappe_path, capture_output=True, check=True)
 
-		fake_bench.apps.update_apps_states("frappe")
+		fake_bench.apps.update_apps_states(app_name="frappe")
 
 		self.assertIn("frappe", fake_bench.apps.states)
 		self.assertIn("version", fake_bench.apps.states["frappe"])
